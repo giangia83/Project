@@ -1,5 +1,26 @@
 version = 1
 
+test_patterns = [
+    "from bs4 import BeautifulSoup",
+    "import requests",
+    "import pandas as pd",
+    "r = requests.get('https://listado.mercadolibre.com.ve/jabon#D[A:jabon]')",
+    "soup = BeautifulSoup(r.content, 'lxml')",
+    "nombre = soup.find_all('a', class_='ui-search-item__group__element ui-search-link')",
+    "precio = soup.find_all('span', class_='price-tag-fraction')",
+    "nombre = list()",
+    "for i in nombre:",
+    "      nombre.append(i.text)",
+    "precio= list()",
+    "for i in precio:",
+    "      precio.append(i.text)",
+    "    ",
+    "d = {'Producto': nombre, 'Precio': precio}",
+    "df = pd.DataFrame(data=d)",
+    "print(df)",
+    "#df.to_csv('prueba1.csv')"
+]
+
 [[analyzers]]
 name = "python"
 enabled = true
